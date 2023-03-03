@@ -14,13 +14,13 @@ export class TasksController {
     }
 
     @Get()
-    getTasks():Task[]{
+    getTasks():Promise<Task[]>{
         return this.taskService.getTasks();
     }
 
     @Get(':taskId')
     getTask(@Param('taskId') taskId:string){
-        return this.taskService.getTask(parseInt(taskId));
+        return this.taskService.getTask(taskId);
     }
 
     // @Get
