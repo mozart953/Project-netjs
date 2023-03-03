@@ -1,7 +1,7 @@
 import {Document} from 'mongoose';
 
 export interface Task extends Document{
-    id?:number;
+    _id?:string;
     title:String;
     description: String;
     done:boolean;

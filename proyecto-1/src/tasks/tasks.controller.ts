@@ -18,7 +18,7 @@ export class TasksController {
         return this.taskService.getTasks();
     }
 
-    @Get(':taskId')
+    @Get('/:taskId')
     getTask(@Param('taskId') taskId:string){
         return this.taskService.getTask(taskId);
     }
@@ -29,9 +29,8 @@ export class TasksController {
     // }
 
     @Post()
-    createTasks(@Body() task: createTaskDto): String {
-        console.log(task.title, task.description, task.done);
-        return `creating a task -> titulo: ${task.title} descripcion: ${task.description} realizacion: ${task.done}`;
+    createTasks(@Body() task: createTaskDto):string{
+        return this.taskService.createTask(task);
     }
 
     @Put('/:id')

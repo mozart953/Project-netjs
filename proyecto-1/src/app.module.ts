@@ -7,9 +7,12 @@ import { TasksService } from './tasks/tasks.service';
 import { TasksModule } from './tasks/tasks.module';
 
 
+
 @Module({
-  imports: [TasksModule, MongooseModule.forRoot('mongodb://localhost/nest-tutorial1')],
-  controllers: [AppController, TasksController],
-  providers: [AppService, TasksService],
+  imports: [TasksModule, MongooseModule.forRoot('mongodb://localhost/nest-tutorial1',{
+    useNewUrlParser:true
+  })],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
